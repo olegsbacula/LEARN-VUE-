@@ -1,11 +1,18 @@
 <template>
-  <div class="theme-switcher" style="
-    position: absolute;
-    top: 0;
-    left: 0;">
-    <button @click="store.change()">Change Theme</button>
-  </div>
-  <br>
+  <lx-card class="theme-switcher" :shadow="true" style="width: 300px;">
+    <template #header>
+      <lx-icon name="sun" /> 
+      Theme: {{ store.color }}
+    </template>
+
+    <lx-button
+      @click="store.change()"
+      :icon="store.color === 'White' ? 'moon' : 'sun'"
+      variant="primary"
+    >
+      Switch to {{ store.color === 'White' ? 'Black' : 'White' }}
+    </lx-button>
+  </lx-card>
 </template>
 
 <script setup>
